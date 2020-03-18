@@ -41,6 +41,8 @@ RUN yarn install
 # Remove frontend service not required for prod, dev nginx config as well
 RUN rm -rf /etc/services.d/frontend RUN rm -f /etc/nginx/conf.d/dev.conf
 
+RUN pip3 install certbot-dns-cloudflare
+
 VOLUME [ "/data", "/etc/letsencrypt" ]
 CMD [ "/init" ]
 
