@@ -41,8 +41,10 @@ const internalCertificate = {
 			logger.info('Renewing SSL certs close to expiry...');
 
 			let cmd = certbot_command + ' renew --non-interactive --quiet ' +
-				'--config "' + le_config + '" ' +
-				'--preferred-challenges "dns,http" ' +
+				//'--config "' + le_config + '" ' +
+				'--preferred-challenges "dns" ' +
+			        //'--dns-cloudflare ' +
+                                //'--dns-cloudflare-credentials /etc/letsencrypt/ssl.ini ' +
 				'--disable-hook-validation ' +
 				(le_staging ? '--staging' : '');
 
@@ -728,12 +730,14 @@ const internalCertificate = {
 		logger.info('Requesting Let\'sEncrypt certificates for Cert #' + certificate.id + ': ' + certificate.domain_names.join(', '));
 
 		let cmd = certbot_command + ' certonly --non-interactive ' +
-			'--config "' + le_config + '" ' +
+			//'--config "' + le_config + '" ' +
 			'--cert-name "npm-' + certificate.id + '" ' +
 			'--agree-tos ' +
 			'--email "' + certificate.meta.letsencrypt_email + '" ' +
-			'--preferred-challenges "dns,http" ' +
-			'--webroot ' +
+			'--preferred-challenges "dns" ' +
+		        '--dns-cloudflare ' +
+                        '--dns-cloudflare-credentials /etc/letsencrypt/ssl.ini ' +
+			//'--webroot ' +
 			'--domains "' + certificate.domain_names.join(',') + '" ' +
 			(le_staging ? '--staging' : '');
 
@@ -798,11 +802,11 @@ const internalCertificate = {
 		logger.info('Renewing Let\'sEncrypt certificates for Cert #' + certificate.id + ': ' + certificate.domain_names.join(', '));
 
 		let cmd = certbot_command + ' renew --non-interactive ' +
-			'--config "' + le_config + '" ' +
+			//'--config "' + le_config + '" ' +
 			'--cert-name "npm-' + certificate.id + '" ' +
-			'--preferred-challenges "dns,http" ' +
+			'--preferred-challenges "dns" ' +
 			'--disable-hook-validation ' +
-			(le_staging ? '--staging' : '');
+		    	(le_staging ? '--staging' : '');
 
 		if (debug_mode) {
 			logger.info('Command:', cmd);
@@ -824,7 +828,7 @@ const internalCertificate = {
 		logger.info('Revoking Let\'sEncrypt certificates for Cert #' + certificate.id + ': ' + certificate.domain_names.join(', '));
 
 		let cmd = certbot_command + ' revoke --non-interactive ' +
-			'--config "' + le_config + '" ' +
+			//'--config "' + le_config + '" ' +
 			'--cert-path "/etc/letsencrypt/live/npm-' + certificate.id + '/fullchain.pem" ' +
 			'--delete-after-revoke ' +
 			(le_staging ? '--staging' : '');
