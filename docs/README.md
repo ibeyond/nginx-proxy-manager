@@ -26,7 +26,7 @@ footer: MIT Licensed | Copyright © 2016-present jc21.com
   </div>
   <div class="feature">
     <h2>Free SSL</h2>
-    <p>Built in Let’s Encrypt support allows you to secure your Web services at no cost to you. The certificates even renew themselves!</p>
+    <p>Built in Let’s Encrypt support allows you to secure your Web services at no cost to you. The certificates even renew themselves! for cloudfare dns challenge -> https://certbot-dns-cloudflare.readthedocs.io/en/stable/</p>
   </div>
   <div class="feature">
     <h2>Docker FTW</h2>
