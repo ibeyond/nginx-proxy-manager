@@ -16,7 +16,7 @@
 This project comes as a pre-built docker image that enables you to easily forward to your websites
 running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.
 
-- [Quick Setup](https://nginxproxymanager.com#quick-setup)
+- [Quick Setup](https://github.com/ibeyond/nginx-proxy-manager/tree/master/docs)
 - [Full Setup](https://nginxproxymanager.com/setup/)
 - [Screenshots](https://nginxproxymanager.com/screenshots/)
 
