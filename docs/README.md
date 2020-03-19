@@ -60,6 +60,7 @@ services:
       - ./config.json:/app/config/production.json
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+      - ./ssl.ini:/etc/letsencrypt/ssl.ini
   db:
     image: 'jc21/mariadb-aria:10.4'
     environment:
