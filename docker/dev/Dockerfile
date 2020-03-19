@@ -23,6 +23,8 @@ RUN rm -f /etc/nginx/conf.d/production.conf
 RUN curl -L -o /tmp/s6-overlay-amd64.tar.gz "https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-amd64.tar.gz" \
 	&& tar -xzf /tmp/s6-overlay-amd64.tar.gz -C /
 
+RUN pip3 install certbot-dns-cloudflare
+
 EXPOSE 80
 EXPOSE 81
 EXPOSE 443

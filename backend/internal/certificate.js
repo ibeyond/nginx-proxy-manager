@@ -43,8 +43,6 @@ const internalCertificate = {
 			let cmd = certbot_command + ' renew --non-interactive --quiet ' +
 				//'--config "' + le_config + '" ' +
 				'--preferred-challenges "dns" ' +
-			        //'--dns-cloudflare ' +
-                                //'--dns-cloudflare-credentials /etc/letsencrypt/ssl.ini ' +
 				'--disable-hook-validation ' +
 				(le_staging ? '--staging' : '');
 
@@ -735,10 +733,11 @@ const internalCertificate = {
 			'--agree-tos ' +
 			'--email "' + certificate.meta.letsencrypt_email + '" ' +
 			'--preferred-challenges "dns" ' +
-		        '--dns-cloudflare ' +
-                        '--dns-cloudflare-credentials /etc/letsencrypt/ssl.ini ' +
+			'--dns-cloudflare ' +
+			'--dns-cloudflare-credentials /etc/letsencrypt/ssl.ini ' +
 			//'--webroot ' +
 			'--domains "' + certificate.domain_names.join(',') + '" ' +
+			//'--dry-run ' +
 			(le_staging ? '--staging' : '');
 
 		if (debug_mode) {

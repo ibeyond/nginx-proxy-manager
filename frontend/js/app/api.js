@@ -53,7 +53,7 @@ function fetch(verb, path, data, options) {
             contentType: options.contentType || 'application/json; charset=UTF-8',
             processData: options.processData || true,
             crossDomain: true,
-            timeout:     options.timeout ? options.timeout : 30000,
+            timeout:     options.timeout ? options.timeout : 300000,
             xhrFields:   {
                 withCredentials: true
             },
