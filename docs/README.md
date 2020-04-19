@@ -65,7 +65,7 @@ footer: MIT Licensed | Copyright © 2016-present jc21.com
 version: '3'
 services:
   app:
-    image: 'jc21/nginx-proxy-manager:latest'
+    image: 'ibeyond/nginx-proxy-manager-dns:latest'
     ports:
       - '80:80'
       - '81:81'
